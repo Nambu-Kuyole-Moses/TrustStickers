@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrustStickers - Premium Laptop & Phone Skins</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="assets/images/icons/apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="assets/images/icons/apple-touch-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="assets/images/icons/apple-touch-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="assets/images/icons/apple-touch-icon-60x60.png"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/ecommerce.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟦</text></svg>"
+    />
+    <meta name="theme-color" content="#667eea" />
+    <meta
+      name="description"
+      content="TrustStickers - Premium laptop and phone skins. Custom stickers for your devices with fast delivery in Ghana."
+    />
+    <meta
+      name="keywords"
+      content="laptop stickers, phone skins, custom stickers, Ghana, TrustStickers"
+    />
+    <meta
+      property="og:title"
+      content="TrustStickers - Premium Laptop & Phone Skins"
+    />
+    <meta
+      property="og:description"
+      content="Express your style with custom stickers for your devices"
+    />
+    <meta property="og:image" content="/assets/og-image.jpg" />
+  </head>
+  <body>
+    <!-- Add to navbar -->
+    <!-- Updated Navbar with User Auth -->
+   <!-- Fixed Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <h2>TrustStickers</h2>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle" id="navToggle" role="button" aria-controls="navMenu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Navigation Menu -->
+            <ul class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#shop" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#categories" class="nav-link">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Navigation Actions -->
+            <div class="nav-actions">
+                <!-- Search Button -->
+                <button class="nav-action-btn" id="searchBtn" title="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <!-- Wishlist Button -->
+                <!-- <button class="nav-action-btn" id="wishlistBtn" title="Wishlist">
+                    <i class="far fa-heart"></i>
+                </button> -->
+
+                <!-- In your nav-actions -->
+                <button class="nav-action-btn" id="wishlistBtn" title="Wishlist" onclick="showWishlist()">
+                    <i class="far fa-heart"></i>
+                    <span class="wishlist-badge" id="wishlistCount" style="display: none;">0</span>
+                </button>
+
+                <!-- Cart Button -->
+                <button class="nav-action-btn" id="cartToggle" title="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+
+                <!-- User Auth Buttons -->
+                <div id="authButtons" class="auth-buttons">
+                    <button class="nav-action-btn" id="loginBtn" title="Login">
+                        <i class="far fa-user"></i>
+                    </button>
+                </div>
+
+                <!-- User Menu (shown when logged in) -->
+                <div id="userMenu" class="user-menu" style="display: none;">
+                    <div class="user-dropdown">
+                        <button class="user-toggle" id="userToggle">
+                            <span id="userName">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="#profile" class="dropdown-item">
+                                <i class="fas fa-user"></i>My Profile
+                            </a>
+                            <a href="#orders" class="dropdown-item">
+                                <i class="fas fa-shopping-bag"></i>Order History
+                            </a>
+                            <a href="#wishlist" class="dropdown-item">
+                                <i class="fas fa-heart"></i>Wishlist
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#logout" class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Link -->
+                <a href="/admin.html" class="nav-action-btn" title="Admin Dashboard">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Search Bar (Hidden by default) -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <div class="search-header">
+                    <h3>Search Products</h3>
+                    <button class="close-search" id="closeSearch" aria-label="close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="search-input-group">
+                    <input type="text" id="globalSearch" placeholder="What are you looking for?">
+                    <button type="submit" aria-label="search" id="searchSubmit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-results" id="searchResults">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Enhanced Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Premium Device Skins & Stickers</h1>
+          <p class="hero-subtitle">
+            Protect your devices with style. Custom skins for laptops, phones,
+            and tablets.
+          </p>
+          <div class="hero-features">
+            <div class="feature">
+              <i class="fas fa-shipping-fast"></i>
+              <span>Free Shipping in Accra</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-shield-alt"></i>
+              <span>1-Year Warranty</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-undo"></i>
+              <span>Easy Returns</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <button
+              class="cta-button primary"
+              type="button"
+              onclick="scrollToSection('shop')"
+            >
+              Shop Now
+            </button>
+            <button
+              class="cta-button secondary"
+              type="button"
+              onclick="scrollToSection('categories')"
+            >
+              View Categories
+            </button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Animated device showcase -->
+          <div class="device-showcase">
+            <div class="device laptop">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <div class="device phone">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="device tablet">
+              <i class="fas fa-tablet-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+      <div class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid" id="featuredProducts">
+          <!-- Featured products loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop Section with Filters -->
+    <section id="shop" class="shop">
+      <div class="container">
+        <div class="shop-header">
+          <h2 class="section-title">All Products</h2>
+          <div class="shop-controls">
+            <div class="search-box">
+              <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search products..."
+              />
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="filter-controls">
+              <label for="sortSelect" class="sr-only">Sort products</label>
+              <select id="sortSelect" aria-label="Sort products">
+                <option value="name">Sort by Name</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="newest">Newest First</option>
+              </select>
+              <button
+                class="filter-toggle"
+                id="filterToggle"
+                aria-label="Show filters"
+              >
+                <i class="fas fa-filter" aria-hidden="true"></i>
+                <span class="sr-only">Show filters</span>
+                Filters
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-content">
+          <!-- Filters Sidebar -->
+          <div class="filters-sidebar" id="filtersSidebar">
+            <div class="filter-group">
+              <h3>Categories</h3>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="radio" name="category" value="all" checked />
+                  <span>All Products</span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="laptop" />
+                  <span>Laptop Skins</span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="phone" />
+                  <span>Phone Skins</span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="tablet" />
+                  <span>Tablet Skins</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3>Price Range</h3>
+              <div class="price-filter">
+                <input
+                  aria-label="range"
+                  type="range"
+                  id="priceRange"
+                  min="0"
+                  max="50"
+                  value="50"
+                />
+                <div class="price-labels">
+                  <span>₵0</span>
+                  <span>₵50</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3>Features</h3>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" name="feature" value="featured" />
+                  <span>Featured Products</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="feature" value="discount" />
+                  <span>On Sale</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="feature" value="in-stock" />
+                  <span>In Stock</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-container">
+            <div class="products-grid" id="productsGrid">
+              <!-- Products loaded dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="close-cart" id="closeCart">
+          <i class="fas fa-times" aria-hidden="true"></i>
+          <span class="sr-only">Close cart</span>
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <!-- Cart items loaded dynamically -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cartTotal">₵0.00</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">
+          Proceed to Checkout
+        </button>
+        <button class="continue-shopping" onclick="hideCart()">
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <h2 class="section-title">Our Sticker Collection</h2>
+        <div class="filter-buttons">
+          <button
+            class="filter-btn"
+            data-filter="all"
+            aria-label="Show all stickers"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="laptop"
+            aria-label="Show laptop skins only"
+          >
+            Laptop Skins
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="phone"
+            aria-label="Show phone skins only"
+          >
+            Phone Skins
+          </button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Stickers will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="order">
+      <div class="container">
+        <h2 class="section-title">Place Your Order</h2>
+        <form id="orderForm" class="order-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact (Phone/Email)</label>
+            <input
+              type="text"
+              id="contact"
+              name="contact"
+              required
+              placeholder="Phone or Email"
+              aria-label="Contact"
+            />
+          </div>
+          <div class="form-group">
+            <label for="deviceType">Device Type</label>
+            <select id="deviceType" name="deviceType" required>
+              <option value="">Select Device Type</option>
+              <option value="laptop">Laptop</option>
+              <option value="phone">Smartphone</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="brand">Brand & Model</label>
+            <input
+              type="text"
+              id="brand"
+              name="brand"
+              placeholder="e.g., MacBook Pro 13"
+              required
+              aria-label="Brand and Model"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sticker">Choose Sticker Design</label>
+            <select id="sticker" name="sticker" required>
+              <option value="">Select a Sticker</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location">Delivery Location</label>
+            <textarea
+              id="location"
+              name="location"
+              rows="3"
+              required
+              placeholder="Enter delivery location"
+              aria-label="Delivery Location"
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Place Order</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <i class="fas fa-user"></i>
+              <span>NK Moses</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>0247299303 / 0206825757</span>
+            </div>
+            <div class="social-links">
+              <a href="https://wa.me/233247299303" class="social-link whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+              </a>
+              <a
+                href="https://t.me/@nambukuyolemoses"
+                class="social-link telegram"
+              >
+                <i class="fab fa-telegram"></i>
+                Telegram
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nambu-kuyole-moses-88419a284"
+                class="social-link linkedin"
+              >
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/nambukuyole/"
+                class="social-link instagram"
+              >
+                <i class="fab fa-instagram"></i>
+                Instagram
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UC9_V6lXEOnZASV0PK6-vndQ"
+                class="social-link youtube"
+              >
+                <i class="fab fa-youtube"></i>
+                YouTube
+              </a>
+              <a
+                href="https://www.tiktok.com/@nkbase"
+                class="social-link tiktok"
+              >
+                <i class="fab fa-tiktok"></i>
+                TikTok
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 TrustStickers. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close-modal" aria-label="Close success modal">
+          &times;
+        </button>
+        <i class="fas fa-check-circle success-icon"></i>
+        <h3>Order Placed Successfully!</h3>
+        <p>We'll contact you soon with details.</p>
+      </div>
+    </div>
+
+    <!-- Add to body before closing -->
+    <div id="chat-widget" class="chat-widget">
+      <div class="chat-toggle">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+        <span class="sr-only">Open chat</span>
+      </div>
+      <div class="chat-window hidden">
+        <div class="chat-header">
+          <h4>Chat with Us</h4>
+          <button class="chat-close" aria-label="Close chat window">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-message bot-message">
+            Hi! 👋 How can we help you with your sticker order?
+          </div>
+        </div>
+        <div class="chat-input">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Type your message..."
+          />
+          <button id="sendMessage" aria-label="Send message">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="theme-toggle">
+      <button id="themeToggle" class="theme-btn">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+        <span class="sr-only">Toggle dark mode</span>
+      </button>
+    </div>
+
+    <div class="scroll-to-top hidden">
+      <button id="scrollToTop">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        <span class="sr-only">Scroll to top of page</span>
+      </button>
+    </div>
+
+    <!-- Add these script tags -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Core site scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/chat.js"></script>
+    <script src="scripts/products.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/payment.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/ecommerce.js"></script>
+    <script src="scripts/gallery.js"></script>
+    <script src="scripts/form-handler.js"></script>
+    <script src="scripts/wishlist.js"></script>
+  </body>
+</html>

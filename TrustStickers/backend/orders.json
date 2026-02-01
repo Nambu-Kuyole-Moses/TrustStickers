@@ -1,0 +1,13 @@
+{
+  "orders": [],
+  "settings": {
+    "autoBackup": true,
+    "backupInterval": 24,
+    "maxOrdersPerPage": 50
+  },
+  "analytics": {
+    "totalOrders": 0,
+    "completedOrders": 0,
+    "revenue": 0
+  }
+}

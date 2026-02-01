@@ -1,0 +1,145 @@
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: var(--shadow);
+    padding: 2rem 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+    z-index: 1000;
+  }
+
+  
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .nav-search {
+    width: auto;
+    flex: 1;
+    margin: 0 1rem;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .nav-action-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .user-menu {
+    display: none;
+  }
+
+  .floating-device {
+    font-size: 10rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .order-form {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .nav-container {
+    padding: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .floating-device {
+    font-size: 8rem;
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-btn {
+    width: 200px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .order-form {
+    padding: 1.5rem;
+  }
+
+  .nav-search {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 0.25rem;
+  }
+
+  .nav-action-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .contact-info {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
